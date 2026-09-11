@@ -2,7 +2,13 @@ import { useEffect, useState } from "react";
 import TechnologyCard from "./TechnologyCard";
 import type { Technology } from "../types/technology";
 
-const TechnologyGrid = () => {
+interface TechnologyGridProps {
+  onAddToStack: (technology: Technology) => void;
+}
+
+const TechnologyGrid = ({
+  onAddToStack,
+}: TechnologyGridProps) => {
   const [technologies, setTechnologies] = useState<Technology[]>(
     [],
   );
@@ -16,31 +22,29 @@ const TechnologyGrid = () => {
   }, []);
 
   return (
-    <section
-      id="technologies"
-      className="bg-gray-50 pt-2 pb-16">
+    <section id="technologies" className="bg-gray-50 py-16">
+      <div>
+        <div className="mb-10">
+          <p className="font-semibold text-orange-500">
+            Explore
+          </p>
 
-      <div className="mx-auto max-w-7xl px-4">
-      <div className="mb-10 text-center md:text-left">
+          <h2 className="mt-2 text-3xl font-bold">
+            Technologies
+          </h2>
 
-      <h2 className="mt-2 text-3xl font-bold md:text-3xl">
-         Explore the{" "}
-         <span className="gradient-text">
-         Technologies
-        </span>
-      </h2>
-
-         <p className="mt-3 max-w-2xl text-gray-600">
-          Pick one technology per category to build your ideal stack.
-        </p>
-
+          <p className="mt-3 text-gray-600">
+            Choose the technologies you want to add to your
+            development stack.
+          </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2">
           {technologies.map((technology) => (
             <TechnologyCard
               key={technology.id}
               technology={technology}
+              onAddToStack={onAddToStack}
             />
           ))}
         </div>

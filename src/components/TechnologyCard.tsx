@@ -3,14 +3,17 @@ import type { Technology } from "../types/technology";
 
 interface TechnologyCardProps {
   technology: Technology;
+  onAddToStack: (technology: Technology) => void;
+  isAdded: boolean;
 }
 
 const TechnologyCard = ({
   technology,
+  onAddToStack,
+  isAdded,
 }: TechnologyCardProps) => {
   return (
     <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
-
       <div className="flex items-start justify-between">
         <img
           src={technology.icon}
@@ -18,20 +21,8 @@ const TechnologyCard = ({
           className="h-12 w-12 object-contain"
         />
 
-       <span
-  className={`rounded-full px-3 py-1 text-xs font-semibold ${
-    technology.badge === "Popular"
-      ? "bg-orange-100 text-orange-600"
-      : technology.badge === "Trending"
-      ? "bg-purple-100 text-purple-600"
-      : technology.badge === "Essential"
-      ? "bg-blue-100 text-blue-600"
-      : technology.badge === "Recommended"
-      ? "bg-green-100 text-green-600"
-      : technology.badge === "Powerful"
-      ? "bg-red-100 text-red-600"
-      : "bg-gray-100 text-gray-600" }`}>
-      {technology.badge}
+        <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-600">
+          {technology.badge}
         </span>
       </div>
 
@@ -39,7 +30,7 @@ const TechnologyCard = ({
         {technology.name}
       </h3>
 
-      <p className="mt-2 min-h-12 text-sm leading-6 text-gray-600">
+      <p className="mt-2 text-sm leading-6 text-gray-600">
         {technology.description}
       </p>
 
@@ -61,9 +52,16 @@ const TechnologyCard = ({
         </span>
       </div>
 
-      <button className="mt-5 w-full rounded-xl bg-black py-3 font-semibold text-white">
-        Add to Stack
-      </button>
+     <button
+  onClick={() => onAddToStack(technology)}
+  disabled={isAdded}
+  className={`mt-5 w-full rounded-xl py-3 font-semibold text-white ${
+    isAdded
+      ? "cursor-not-allowed bg-gray-400"
+      : "bg-black"
+    }`}>
+   {isAdded ? "✓ Added to Stack" : "Add to Stack"}
+    </button>
     </div>
   );
 };
