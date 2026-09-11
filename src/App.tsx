@@ -27,9 +27,10 @@ const handleAddToStack = (technology: Technology) => {
       <main className="bg-gray-50">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 pb-16 lg:grid-cols-3">
           <div className="lg:col-span-2">
-            <TechnologyGrid
-              onAddToStack={handleAddToStack}
-            />
+           <TechnologyGrid
+            onAddToStack={handleAddToStack}
+              stack={stack}
+              />
           </div>
 
           <StackSidebar stack={stack} />
@@ -40,3 +41,5 @@ const handleAddToStack = (technology: Technology) => {
 }
 
 export default App;
+
+

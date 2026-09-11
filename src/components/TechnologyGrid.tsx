@@ -4,10 +4,11 @@ import type { Technology } from "../types/technology";
 
 interface TechnologyGridProps {
   onAddToStack: (technology: Technology) => void;
+  stack: Technology[];
 }
-
 const TechnologyGrid = ({
   onAddToStack,
+  stack,
 }: TechnologyGridProps) => {
   const [technologies, setTechnologies] = useState<Technology[]>(
     [],
@@ -45,7 +46,10 @@ const TechnologyGrid = ({
               key={technology.id}
               technology={technology}
               onAddToStack={onAddToStack}
-            />
+              isAdded={stack.some(
+             (item) => item.id === technology.id,
+             )}
+               />
           ))}
         </div>
       </div>
