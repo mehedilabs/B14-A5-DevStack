@@ -1,2 +1,32 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+:root {
+  --brand-gradient: linear-gradient(
+    90deg,
+    #ff7a18 0%,
+    #e83e8c 50%,
+    #8b3dff 100%
+  );
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: white;
+}
+
+.brand-gradient {
+  background-image: var(--brand-gradient);
+}
+
+.gradient-text {
+  background-image: var(--brand-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}

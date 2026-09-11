@@ -1,10 +1,11 @@
+import Navbar from "./components/Navbar";
 
 function App() {
 
 
   return (
     <>
-    <button className="btn btn-success">Success</button>
+     <Navbar />
     </>
   )
 }
