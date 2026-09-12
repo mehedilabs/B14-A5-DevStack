@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import StackSidebar from "./components/StackSidebar";
 import TechnologyGrid from "./components/TechnologyGrid";
 import type { Technology } from "./types/technology";
+import Footer from "./components/Footer";
 
 function App() {
   const [stack, setStack] = useState<Technology[]>([]);
@@ -49,6 +50,7 @@ const handleRemoveAll = () => {
            />
         </div>
       </main>
+      <Footer />
         <ToastContainer position="bottom-right" />
     </>
   );
