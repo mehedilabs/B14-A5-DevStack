@@ -25,18 +25,15 @@ const TechnologyGrid = ({
   return (
     <section id="technologies" className="bg-gray-50 py-16">
       <div>
-        <div className="mb-10">
-          <p className="font-semibold text-orange-500">
-            Explore
-          </p>
+    <div className="mb-10">
 
-          <h2 className="mt-2 text-3xl font-bold">
-            Technologies
+          <h2 className="text-center text-3xl font-bold md:text-left">
+            <span className="text-black">Explore the</span>{" "}
+            <span className="gradient-text">Technologies</span>
           </h2>
 
-          <p className="mt-3 text-gray-600">
-            Choose the technologies you want to add to your
-            development stack.
+          <p className="mt-3 text-center text-gray-600 md:text-left">
+           Pick one technology per category to build your ideal stack.
           </p>
         </div>
 

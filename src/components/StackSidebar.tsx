@@ -1,10 +1,14 @@
 import type { Technology } from "../types/technology";
-
+import StackItem from "./StackItem";
 interface StackSidebarProps {
   stack: Technology[];
+  onRemove: (id: number) => void;
 }
 
-const StackSidebar = ({ stack }: StackSidebarProps) => {
+const StackSidebar = ({
+  stack,
+  onRemove,
+}: StackSidebarProps) => {
   return (
     <aside className="h-fit rounded-2xl border border-gray-200 bg-white p-6 shadow-sm lg:sticky lg:top-24">
       <div className="flex items-center justify-between">
@@ -34,30 +38,15 @@ const StackSidebar = ({ stack }: StackSidebarProps) => {
             to build your stack.
           </p>
         </div>
-      ) : (
-        <div className="mt-6 space-y-3">
+       ) : (
+       <div className="mt-6 space-y-3">
           {stack.map((technology) => (
-            <div
-              key={technology.id}
-              className="flex items-center gap-3 rounded-xl bg-gray-50 p-3"
-            >
-              <img
-                src={technology.icon}
-                alt={technology.name}
-                className="h-9 w-9 object-contain"
-              />
-
-              <div>
-                <p className="font-semibold">
-                  {technology.name}
-                </p>
-
-                <p className="text-xs text-gray-500">
-                  {technology.category}
-                </p>
-              </div>
-            </div>
-          ))}
+          <StackItem
+            key={technology.id}
+            technology={technology}
+             onRemove={onRemove}
+            />
+         ))}
         </div>
       )}
     </aside>

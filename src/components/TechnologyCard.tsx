@@ -1,5 +1,6 @@
 import { FaStar } from "react-icons/fa";
 import type { Technology } from "../types/technology";
+import { toast } from "react-toastify";
 
 interface TechnologyCardProps {
   technology: Technology;
@@ -13,7 +14,9 @@ const TechnologyCard = ({
   isAdded,
 }: TechnologyCardProps) => {
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+       <div className={`rounded-2xl border bg-white p-5 shadow-sm ${
+            isAdded ? "border-blue-300" : "border-gray-200"
+             }`}>
       <div className="flex items-start justify-between">
         <img
           src={technology.icon}
@@ -34,26 +37,31 @@ const TechnologyCard = ({
         {technology.description}
       </p>
 
-      <div className="mt-5 flex flex-wrap gap-2">
-        <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">
-          {technology.category}
-        </span>
+<div className="mt-5 flex items-center justify-between">
 
-        <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">
-          {technology.difficulty}
-        </span>
-      </div>
+  <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">
+    {technology.category}
+  </span>
 
-      <div className="mt-5 flex items-center gap-2">
-        <FaStar className="text-yellow-400" />
+  <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">
+    {technology.difficulty}
+  </span>
 
-        <span className="font-semibold">
-          {technology.rating}
-        </span>
-      </div>
+  <div className="flex items-center gap-2">
+    <FaStar className="text-yellow-400" />
+
+    <span className="font-semibold">
+      {technology.rating}
+    </span>
+  </div>
+
+</div>
 
      <button
-  onClick={() => onAddToStack(technology)}
+    onClick={() => {
+          onAddToStack(technology);
+          toast.success("Added to Stack!");
+        }}
   disabled={isAdded}
   className={`mt-5 w-full rounded-xl py-3 font-semibold text-white ${
     isAdded

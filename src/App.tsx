@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import StackSidebar from "./components/StackSidebar";
@@ -19,6 +21,10 @@ const handleAddToStack = (technology: Technology) => {
 
   setStack([...stack, technology]);
 };
+
+const handleRemove = (id: number) => {
+  setStack(stack.filter((item) => item.id !== id));
+};
   return (
     <>
       <Navbar />
@@ -33,9 +39,13 @@ const handleAddToStack = (technology: Technology) => {
               />
           </div>
 
-          <StackSidebar stack={stack} />
+          <StackSidebar
+           stack={stack}
+           onRemove={handleRemove}
+           />
         </div>
       </main>
+        <ToastContainer position="bottom-right" />
     </>
   );
 }
