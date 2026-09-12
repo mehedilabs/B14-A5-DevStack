@@ -13,6 +13,19 @@ const TechnologyCard = ({
   onAddToStack,
   isAdded,
 }: TechnologyCardProps) => {
+
+    const badgeColor =
+    technology.badge === "Popular"
+      ? "bg-orange-100 text-orange-600"
+      : technology.badge === "Trending"
+        ? "bg-purple-100 text-purple-600"
+        : technology.badge === "Essential"
+          ? "bg-blue-100 text-blue-600"
+          : technology.badge === "Recommended"
+            ? "bg-green-100 text-green-600"
+            : technology.badge === "Powerful"
+              ? "bg-red-100 text-red-600"
+              : "bg-cyan-100 text-cyan-600";
   return (
        <div className={`rounded-2xl border bg-white p-5 shadow-sm ${
             isAdded ? "border-blue-300" : "border-gray-200"
@@ -24,12 +37,12 @@ const TechnologyCard = ({
           className="h-12 w-12 object-contain"
         />
 
-        <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-600">
-          {technology.badge}
+        <span className={`rounded-full px-3 py-1 text-xs font-semibold ${badgeColor}`}
+>            {technology.badge}
         </span>
       </div>
 
-      <h3 className="mt-5 text-xl font-bold">
+      <h3 className="text-[#0F172A] mt-5 text-xl font-bold">
         {technology.name}
       </h3>
 
@@ -39,7 +52,7 @@ const TechnologyCard = ({
 
 <div className="mt-5 flex items-center justify-between">
 
-  <span className="rounded-full bg-gray-100 px-3 py-1 text-xs">
+  <span className="text-[#475569] rounded-full bg-gray-100 px-3 py-1 text-xs">
     {technology.category}
   </span>
 
@@ -50,7 +63,7 @@ const TechnologyCard = ({
   <div className="flex items-center gap-2">
     <FaStar className="text-yellow-400" />
 
-    <span className="font-semibold">
+    <span className="font-semibold text-[#334155]">
       {technology.rating}
     </span>
   </div>

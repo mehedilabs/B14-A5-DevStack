@@ -35,8 +35,8 @@ const handleRemoveAll = () => {
       <Hero />
 
       <main className="bg-gray-50">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 pb-16 lg:grid-cols-3">
-          <div className="lg:col-span-2">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 pb-16 lg:grid-cols-4">
+          <div className="lg:col-span-3">
            <TechnologyGrid
             onAddToStack={handleAddToStack}
               stack={stack}
@@ -51,7 +51,7 @@ const handleRemoveAll = () => {
         </div>
       </main>
       <Footer />
-        <ToastContainer position="bottom-right" />
+      <ToastContainer position="bottom-right" />
     </>
   );
 }

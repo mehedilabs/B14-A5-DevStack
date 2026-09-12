@@ -17,29 +17,29 @@ const Navbar = () => {
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
-          <a href="#home" className="hover:text-orange-500">
+          <a href="#home" className="nav-link">
             Home
           </a>
 
-          <a href="#technologies" className="hover:text-orange-500">
+          <a href="#technologies" className="nav-link">
             Technologies
           </a>
 
-          <a href="#projects" className="hover:text-orange-500">
+          <a href="#projects" className="nav-link">
             Projects
           </a>
 
-          <a href="#about" className="hover:text-orange-500">
+          <a href="#about" className="nav-link">
             About
           </a>
 
-          <a href="#contact" className="hover:text-orange-500">
+          <a href="#contact" className="nav-link">
             Contact
           </a>
         </div>
 
         <div className="hidden items-center gap-4 md:flex">
-          <button className="font-medium">
+          <button className="text-[#334155] font-medium">
             Sign In
           </button>
 
@@ -71,15 +71,15 @@ const Navbar = () => {
           </a>
 
           {/* Mobile Auth */}
-          <div className="ml-auto flex items-center gap-4">
-            <button className="font-medium">
-              Sign In
-            </button>
+         <div className="ml-auto flex items-center gap-2">
+           <button className="text-xs font-medium">
+             Sign In
+         </button>
 
-            <button className="rounded-full bg-[#d92b83] px-5 py-2 text-white">
-              Sign Up
-            </button>
-          </div>
+        <button className="rounded-full bg-[#d92b83] px-3 py-1.5 text-xs text-white">
+            Sign Up
+        </button>
+         </div>
         </div>
       </div>
 

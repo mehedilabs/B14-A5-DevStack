@@ -5,9 +5,9 @@ const Hero = () => {
     <section
       id="home"
       className="bg-gray-50">
-     <div className="mx-auto grid max-w-7xl items-center gap-0 px-4 py-16 md:grid-cols-2 md:gap-10 md:py-24">
-        <div className="text-center md:text-left">
-          <h1 className="text-4xl font-bold leading-tight md:text-6xl">
+     <div className="mx-auto grid max-w-7xl items-center gap-0 px-4 pt-8 pb-4 md:grid-cols-2 md:gap-10 md:py-24">
+        <div className="font-inter text-center md:text-left">
+          <h1 className="text-[#0F172A] text-4xl font-bold leading-tight md:text-6xl">
             Build Your Ideal
 
             <br />
@@ -25,14 +25,14 @@ const Hero = () => {
           <div className="mt-12 flex flex-wrap justify-center gap-4 md:justify-start">
             <a
               href="#technologies"
-              className="brand-gradient rounded-2xl px-6 py-3 font-semibold text-white"
+              className="font-inter brand-gradient rounded-2xl px-6 py-3 font-semibold text-white"
             >
               Explore Technologies
             </a>
 
             <a
               href="#about"
-              className="rounded-2xl border border-gray-300 px-6 py-3 text-\[\#374151\]">
+              className="font-inter text-[#374151] rounded-2xl border border-gray-300 px-6 py-3 text-\[\#374151\]">
               Learn More
             </a>
           </div>

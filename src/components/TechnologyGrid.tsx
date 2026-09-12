@@ -26,7 +26,7 @@ const TechnologyGrid = ({
   }, []);
     
 return (
-  <section id="technologies" className="bg-gray-50 py-16">
+  <section id="technologies" className="bg-gray-50 pt-4 pb-16 md:py-16">
     <div>
       <div className="mb-10">
         <h2 className="text-center text-3xl font-bold md:text-left">
@@ -49,18 +49,26 @@ return (
         </div>
       )}
 
-      <div className="grid gap-6 md:grid-cols-2">
-        {technologies.map((technology) => (
-          <TechnologyCard
-            key={technology.id}
-            technology={technology}
-            onAddToStack={onAddToStack}
-            isAdded={stack.some(
-              (item) => item.id === technology.id,
-            )}
-          />
-        ))}
-      </div>
+     {loading ? (
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+     {Array.from({ length: 6 }).map((_, index) => (
+      <div key={index} className="h-64"></div>
+    ))}
+    </div>
+     ) : (
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+       {technologies.map((technology) => (
+        <TechnologyCard
+        key={technology.id}
+        technology={technology}
+        onAddToStack={onAddToStack}
+        isAdded={stack.some(
+          (item) => item.id === technology.id,
+        )}
+      />
+    ))}
+  </div>
+    )}
     </div>
   </section>
 );
