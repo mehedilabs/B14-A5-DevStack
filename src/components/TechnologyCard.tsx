@@ -38,7 +38,8 @@ const TechnologyCard = ({
         />
 
         <span className={`rounded-full px-3 py-1 text-xs font-semibold ${badgeColor}`}
->            {technology.badge}
+         >            
+          {technology.badge}
         </span>
       </div>
 
@@ -72,15 +73,19 @@ const TechnologyCard = ({
 
      <button
     onClick={() => {
-          onAddToStack(technology);
-          toast.success("Added to Stack!");
-        }}
-  disabled={isAdded}
-  className={`mt-5 w-full rounded-xl py-3 font-semibold text-white ${
-    isAdded
-      ? "cursor-not-allowed bg-gray-400"
-      : "bg-black"
-    }`}>
+  if (isAdded) {
+    toast.warning("This technology is already in your stack!");
+    return;
+  }
+
+  onAddToStack(technology);
+  toast.success("Added to Stack!");
+}}
+ className={`mt-5 w-full rounded-xl py-3 font-semibold ${
+  isAdded
+    ? "cursor-not-allowed bg-[#DB2777]/10 text-[#DB2777]"
+    : "cursor-pointer bg-black text-white"
+}`}>
    {isAdded ? "✓ Added to Stack" : "Add to Stack"}
     </button>
     </div>
