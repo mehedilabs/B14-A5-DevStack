@@ -25,6 +25,9 @@ const handleAddToStack = (technology: Technology) => {
 const handleRemove = (id: number) => {
   setStack(stack.filter((item) => item.id !== id));
 };
+const handleRemoveAll = () => {
+  setStack([]);
+};
   return (
     <>
       <Navbar />
@@ -42,6 +45,7 @@ const handleRemove = (id: number) => {
           <StackSidebar
            stack={stack}
            onRemove={handleRemove}
+           onRemoveAll={handleRemoveAll}
            />
         </div>
       </main>

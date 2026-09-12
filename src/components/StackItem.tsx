@@ -34,7 +34,7 @@ const StackItem = ({
       <button
           onClick={() => {
           onRemove(technology.id);
-          toast.error("Removed from Stack!");
+          toast.info("Removed from Stack!");
         }}
         className="rounded-full p-2 text-gray-500 hover:bg-red-100 hover:text-red-500"
       >

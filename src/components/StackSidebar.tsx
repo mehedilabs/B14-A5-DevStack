@@ -1,15 +1,19 @@
+import { toast } from "react-toastify";
 import type { Technology } from "../types/technology";
 import StackItem from "./StackItem";
 interface StackSidebarProps {
   stack: Technology[];
   onRemove: (id: number) => void;
+  onRemoveAll: () => void;
 }
 
 const StackSidebar = ({
   stack,
   onRemove,
+  onRemoveAll,
 }: StackSidebarProps) => {
   return (
+    <div className="lg:pt-44.25">
     <aside className="h-fit rounded-2xl border border-gray-200 bg-white p-6 shadow-sm lg:sticky lg:top-24">
       <div className="flex items-center justify-between">
         <div>
@@ -34,8 +38,7 @@ const StackSidebar = ({
           </p>
 
           <p className="mt-2 text-sm text-gray-400">
-            Add technologies from the list
-            to build your stack.
+            Add technologies from the list to build your stack.
           </p>
         </div>
        ) : (
@@ -47,9 +50,22 @@ const StackSidebar = ({
              onRemove={onRemove}
             />
          ))}
+
+         {stack.length > 0 && (
+     <button
+       onClick={() => {
+       onRemoveAll();
+       toast.info("All technologies removed!");
+        }}
+      className="mt-5 w-full rounded-xl border border-red-200 py-3 font-semibold text-red-500"
+      >
+      Remove All
+     </button>
+           )}
         </div>
       )}
     </aside>
+    </div>
   );
 };
 
